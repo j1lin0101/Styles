@@ -1,50 +1,219 @@
-.App {
-  text-align: center;
-  background: #67B26F;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #4ca2cd, #67B26F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content:space-between;
-  flex: 1 1 auto;
-}
-.header{
-  background:rgba(255,255,255,0.2);
-  border-bottom:1px solid white;
-  height: 2.5rem;
-  display:flex;
-  align-items: center;
-  padding: 0 12px;
-  font-size:1.2rem;
-  color:white;
-  font-weight: bold;
-}
-.logo{
-  height:1.8rem;
-  width:1.8rem;
-  margin-right:10px;
-  background: url(./logo.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size:cover;
+* {
+    box-sizing: border-box;
 }
 
+.App {
+    background: #67B26F;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4ca2cd, #67B26F);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.header {
+    background: rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid white;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.left-align {
+    display: flex;
+    margin-left: 0.5rem;
+}
+
+.logo {
+    height: 1.8rem;
+    width: 1.8rem;
+    margin-right: 10px;
+    background: url(./logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.name-picker {
+    margin-right: 0.5rem;
+    display: flex;
+}
+
+.name-picker button {
+    height: 1.8rem;
+    width: 1.8rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+}
+
+.name-picker {
+    width: fit-content;
+}
+
+.bg {
+    background: url(./write.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: none;
+}
+
+.no-bg {
+    background: none;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column-reverse;
+    flex: 1;
+    overflow: auto;
+}
+
+.message-row {
+    width: 100%;
+}
+
+.message-user {
+    font-size: 1rem;
+    margin: 1rem 4rem;
+}
 
 .message {
-  background-color: black;
-  color: white;
-  width:fit-content; 
-  height:fit-content;
-  display: flex;
-  flex-direction: row;
-  align-items:center;
-  justify-content:center;
-  margin-left: 15vw;
-  font-size: 1vw;
-  padding: 1vw;
-  border-radius: 30px;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 2rem;
+    margin: 1rem 4rem;
+
+}
+
+.other-user {
+    float: left;
+}
+
+.self-user {
+    float: right;
+}
+
+.self-user .message-user {
+    text-align: right;
+}
+
+.other-user .message {
+    background: black;
+    color: white;
+}
+
+.self-user .message {
+    background: white;
+    color: black;
 }
 
 
+
+.text-input {
+    background: rgba(255, 255, 255, 0.2);
+    border-top: 1px solid white;
+    height: 2.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.send-button {
+    position: absolute;
+    right: 0.2rem;
+    top: 0.5rem;
+    border-radius: 100%;
+    border: 1px solid white;
+    background: white;
+    color: black;
+    cursor: pointer;
+    outline: none;
+    height: 1.4rem;
+    width: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4rem;
+}
+
+.send-button[disabled] {
+    background: grey;
+    cursor: default;
+}
+
+.send-button>svg {
+    color: black;
+}
+
+.send-button[disabled]>svg {
+    color: white;
+}
+
+.input {
+    height: 1.65rem;
+    width: calc(100% - 1rem);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0.8rem;
+    outline: none;
+    border: 1px solid white;
+    color: white;
+    padding-left: 10px;
+    margin: 0 4rem;
+}
+
+.inputx {
+    border: 1px solid white;
+    border-radius: 1.6rem;
+    height: 1.6rem;
+    width: calc(100% - 20px);
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 0 10px;
+    outline: none;
+}
+
+.send-buttonx {
+    position: absolute;
+    right: 12px;
+    top: 0.55rem;
+    border-radius: 100%;
+    background: white;
+    color: black;
+    border: none;
+    height: 1.4rem;
+    width: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    outline: none;
+}
+
+.send-buttonx[disabled] {
+    cursor: default;
+    background: grey;
+}
+
+.name-picker {
+    right: 4rem;
+}
